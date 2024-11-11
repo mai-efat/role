@@ -1,0 +1,12 @@
+- name: "Deploy the nginx template"
+  template:
+    src: "{{template_name}}"  # Path to the template file inside the role
+    dest: "/var/www/html/index.html"  # Destination path on the target machine
+    mode: '0644'  # Permissions for the copied file
+    notify: restart service
+
+- name: "restart service"
+  sysvinit:
+     name: nginx
+     state: restarted
+  when: output.changed == true 

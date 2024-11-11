@@ -4,6 +4,8 @@
        state: present
   register: my_output
   changed_when: true
+  notify: Deploy the nginx template
+  
 
 - name: "loop files"
   copy:
@@ -12,8 +14,5 @@
   loop: "{{list}}"
   when:  my_output.changed == true 
   register: output
-- name: " restart service"
-  sysvinit:
-     name: nginx
-     state: restarted
-  when: output.changed == true 
+
+

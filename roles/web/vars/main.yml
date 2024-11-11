@@ -1,4 +1,6 @@
 package_name: nginx
 list: 
-   - index_html.j2
+
    - key.pub
+my_msg: "hello mai"
+template_name: index_html.j2
