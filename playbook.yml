@@ -1,0 +1,4 @@
+- name: " playbook"
+  hosts: my_hosts
+  roles:
+   - web
